@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useCallback } from "react";
 import { getStandups } from "../services/standupService";
 import WeatherWidget from "../components/WeatherWidget";
@@ -44,7 +43,7 @@ const Feed = () => {
   };
 
   const postsWithBlockers = posts.filter(
-    (post) => post.has_blocker === true
+    (post) => post.has_blocker === true,
   ).length;
 
   const uniqueAuthors = [...new Set(posts.map((p) => p.author))];
@@ -65,22 +64,15 @@ const Feed = () => {
   return (
     <div className="bg-light min-vh-100">
       <div className="container py-4">
-
         {/* HEADER */}
         <div className="d-flex justify-content-between align-items-center mb-4">
-
           <div>
-            <h3 className="fw-bold mb-1">
-              Activity Feed
-            </h3>
+            <h4 className="fw-bold mb-1">Activity Feed</h4>
 
-            <p className="text-muted mb-0">
-              Real-time team updates
-            </p>
+            <p className="text-muted mb-0">Real-time team updates</p>
           </div>
 
           <WeatherWidget />
-
         </div>
 
         {/* ERROR */}
@@ -91,37 +83,29 @@ const Feed = () => {
         )}
 
         <div className="row g-4">
-
           {/* LEFT COLUMN */}
-          <div className="col-lg-8" style={{ maxHeight: "650px", overflowY: "auto" }}>
-
+          <div
+            className="col-lg-8"
+            style={{ maxHeight: "650px", overflowY: "auto" }}
+          >
             {posts.length === 0 ? (
               <div className="bg-white border rounded-4 shadow-sm p-5 text-center">
                 <i className="bi bi-chat-left-text fs-1 text-muted"></i>
 
-                <h5 className="mt-3 fw-semibold">
-                  No standups yet
-                </h5>
+                <h5 className="mt-3 fw-semibold">No standups yet</h5>
 
-                <p className="text-muted mb-0">
-                  Submit one on the Dashboard
-                </p>
+                <p className="text-muted mb-0">Submit one on the Dashboard</p>
               </div>
             ) : (
               <div>
-
                 {posts.map((post) => (
-
                   <div
                     key={post.id}
                     className="bg-white border rounded-4 p-4 mb-4 shadow-sm"
                   >
-
                     {/* TOP SECTION */}
                     <div className="d-flex justify-content-between align-items-start mb-4">
-
                       <div className="d-flex align-items-center gap-3">
-
                         <div
                           className="rounded-circle d-flex align-items-center justify-content-center fw-bold"
                           style={{
@@ -144,7 +128,6 @@ const Feed = () => {
                             {getTimeAgo(post.timestamp)}
                           </small>
                         </div>
-
                       </div>
 
                       {/* Blocker Badge */}
@@ -153,100 +136,82 @@ const Feed = () => {
                           Blocker
                         </span>
                       )}
-
                     </div>
 
                     {/* YESTERDAY + TODAY */}
                     <div className="row g-3">
-
                       {/* Yesterday */}
                       <div className="col-md-6">
-
-                        <div >
-
+                        <div>
                           <h6 className="fw-bold text-secondary small mb-3">
                             YESTERDAY
                           </h6>
 
                           {post.yesterday ? (
-                            post.yesterday.split("\n").map((line, i) => (
-                              line.trim() && (
-                                <p
-                                  key={i}
-                                  className="mb-2 text-dark"
-                                  style={{ fontSize: "0.92rem" }}
-                                >
-                                  • {line}
-                                </p>
-                              )
-                            ))
+                            post.yesterday.split("\n").map(
+                              (line, i) =>
+                                line.trim() && (
+                                  <p
+                                    key={i}
+                                    className="mb-2 text-dark"
+                                    style={{ fontSize: "0.92rem" }}
+                                  >
+                                     {line}
+                                  </p>
+                                ),
+                            )
                           ) : (
                             <p className="text-muted mb-0">
-                              • Nothing reported
+                               Nothing reported
                             </p>
                           )}
-
                         </div>
-
                       </div>
 
                       {/* Today */}
                       <div className="col-md-6">
-
-                        <div >
-
-                          <h6 className="fw-bold  small mb-3">
-                            TODAY
-                          </h6>
+                        <div>
+                          <h6 className="fw-bold  small mb-3">TODAY</h6>
 
                           {post.today ? (
-                            post.today.split("\n").map((line, i) => (
-                              line.trim() && (
-                                <p
-                                  key={i}
-                                  className="mb-2 "
-                                  style={{ fontSize: "0.92rem" }}
-                                >
-                                   {line}
-                                </p>
-                              )
-                            ))
+                            post.today.split("\n").map(
+                              (line, i) =>
+                                line.trim() && (
+                                  <p
+                                    key={i}
+                                    className="mb-2 "
+                                    style={{ fontSize: "0.92rem" }}
+                                  >
+                                    {line}
+                                  </p>
+                                ),
+                            )
                           ) : (
                             <p className="text-muted mb-0">
-                              • Nothing reported
+                               Nothing reported
                             </p>
                           )}
-
                         </div>
-
                       </div>
-
                     </div>
 
                     {/* BLOCKERS */}
                     {post.blockers && post.blockers.trim() && (
-
                       <div className="mt-3 p-3 rounded-4  ">
-
                         <h6 className="fw-bold text-danger small mb-2">
                           BLOCKERS
                         </h6>
 
-                        <p
-                          className="mb-0"
-                          style={{ fontSize: "0.92rem" }}
-                        >
+                        <p className="mb-0" style={{ fontSize: "0.92rem" }}>
                           {post.blockers}
                         </p>
-
                       </div>
-
                     )}
 
                     {/* IMAGE */}
-                    {/* {post.file_attachment && (
-                      <div className="mt-3">
 
+                    {post.file_attachment && (
+                      <div className="mt-3">
                         <img
                           src={`https://standup-backend-v4n5.onrender.com/uploads/${post.file_attachment}`}
                           alt="Screenshot"
@@ -254,75 +219,45 @@ const Feed = () => {
                           style={{
                             maxHeight: "300px",
                             objectFit: "cover",
+                            cursor: "pointer",
                           }}
+                          onClick={() =>
+                            window.open(
+                              `https://standup-backend-v4n5.onrender.com/uploads/${post.file_attachment}`,
+                              "_blank",
+                            )
+                          }
                         />
-
                       </div>
-                    )} */}
-                    {post.file_attachment && (
-  <div className="mt-3">
-    <img
-      src={`https://standup-backend-v4n5.onrender.com/uploads/${post.file_attachment}`}
-      alt="Screenshot"
-      className="w-100 rounded-4 border"
-      style={{
-        maxHeight: "300px",
-        objectFit: "cover",
-        cursor: "pointer",
-      }}
-      onClick={() => window.open(`https://standup-backend-v4n5.onrender.com/uploads/${post.file_attachment}`, '_blank')}
-    />
-  </div>
-)}
-
+                    )}
                   </div>
-
                 ))}
-
               </div>
             )}
-
           </div>
 
           {/* RIGHT COLUMN */}
           <div className="col-lg-4">
-
             <div className="bg-white border rounded-4 p-4 shadow-sm">
-
               <h6 className="fw-bold text-secondary small mb-4">
                 TEAM PERFORMANCE
               </h6>
 
               {/* Active Blockers */}
               <div className="d-flex justify-content-between align-items-center mb-4">
+                <span className="text-muted">Active Blockers</span>
 
-                <span className="text-muted">
-                  Active Blockers
-                </span>
-
-                <span className="fw-bold fs-4">
-                  {postsWithBlockers}
-                </span>
-
+                <span className="fw-bold fs-4">{postsWithBlockers}</span>
               </div>
 
               {/* Participation */}
               <div className="d-flex justify-content-between align-items-center">
+                <span className="text-muted">Standup Participation</span>
 
-                <span className="text-muted">
-                  Standup Participation
-                </span>
-
-                <span className="fw-bold fs-4">
-                  {standupParticipation}
-                </span>
-
+                <span className="fw-bold fs-4">{standupParticipation}</span>
               </div>
-
             </div>
-
           </div>
-
         </div>
       </div>
     </div>
@@ -330,4 +265,3 @@ const Feed = () => {
 };
 
 export default Feed;
-
