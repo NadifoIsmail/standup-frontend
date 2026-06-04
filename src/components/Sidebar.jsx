@@ -12,7 +12,7 @@ export default function Sidebar() {
         className="btn btn-outline-light w-100 text-start mb-2"
         onClick={() => navigate("/homepage")}
       >
-         Dashboard
+         Homepage
       </button>
 
       <button 
@@ -26,6 +26,7 @@ export default function Sidebar() {
         className="btn btn-outline-light w-100 text-start mb-2"
         onClick={() => navigate("/analytics")}
       >
+        
         Analytics
       </button>
 
