@@ -244,7 +244,7 @@ const Feed = () => {
                     )}
 
                     {/* IMAGE */}
-                    {post.file_attachment && (
+                    {/* {post.file_attachment && (
                       <div className="mt-3">
 
                         <img
@@ -258,7 +258,22 @@ const Feed = () => {
                         />
 
                       </div>
-                    )}
+                    )} */}
+                    {post.file_attachment && (
+  <div className="mt-3">
+    <img
+      src={`https://standup-backend-v4n5.onrender.com/uploads/${post.file_attachment}`}
+      alt="Screenshot"
+      className="w-100 rounded-4 border"
+      style={{
+        maxHeight: "300px",
+        objectFit: "cover",
+        cursor: "pointer",
+      }}
+      onClick={() => window.open(`https://standup-backend-v4n5.onrender.com/uploads/${post.file_attachment}`, '_blank')}
+    />
+  </div>
+)}
 
                   </div>
 
