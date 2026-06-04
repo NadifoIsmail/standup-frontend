@@ -139,61 +139,53 @@ const Feed = () => {
                     </div>
 
                     {/* YESTERDAY + TODAY */}
-                    <div className="row g-3">
-                      {/* Yesterday */}
-                      <div className="col-md-6">
-                        <div>
-                          <h6 className="fw-bold text-secondary small mb-3">
-                            YESTERDAY
-                          </h6>
+<div className="row g-3">
+  {/* Yesterday */}
+  <div className="col-md-6">
+    <div>
+      <h6 className="fw-bold text-secondary small mb-3">YESTERDAY</h6>
+      
+      {post.yesterday ? (
+        <ul className="list-unstyled mb-0">
+          {post.yesterday.split("\n").map(
+            (line, i) =>
+              line.trim() && (
+                <li key={i} className="mb-2 d-flex gap-2">
+                  <span className="text-muted"></span>
+                  <span style={{ fontSize: "0.92rem" }}>{line.trim()}</span>
+                </li>
+              ),
+          )}
+        </ul>
+      ) : (
+        <p className="text-muted mb-0">Nothing reported</p>
+      )}
+    </div>
+  </div>
 
-                          {post.yesterday ? (
-                            post.yesterday.split("\n").map(
-                              (line, i) =>
-                                line.trim() && (
-                                  <p
-                                    key={i}
-                                    className="mb-2 text-dark"
-                                    style={{ fontSize: "0.92rem" }}
-                                  >
-                                     {line}
-                                  </p>
-                                ),
-                            )
-                          ) : (
-                            <p className="text-muted mb-0">
-                               Nothing reported
-                            </p>
-                          )}
-                        </div>
-                      </div>
-
-                      {/* Today */}
-                      <div className="col-md-6">
-                        <div>
-                          <h6 className="fw-bold  small mb-3">TODAY</h6>
-
-                          {post.today ? (
-                            post.today.split("\n").map(
-                              (line, i) =>
-                                line.trim() && (
-                                  <p
-                                    key={i}
-                                    className="mb-2 "
-                                    style={{ fontSize: "0.92rem" }}
-                                  >
-                                    {line}
-                                  </p>
-                                ),
-                            )
-                          ) : (
-                            <p className="text-muted mb-0">
-                               Nothing reported
-                            </p>
-                          )}
-                        </div>
-                      </div>
-                    </div>
+  {/* Today */}
+  <div className="col-md-6">
+    <div>
+      <h6 className="fw-bold text-secondary small mb-3">TODAY</h6>
+      
+      {post.today ? (
+        <ul className="list-unstyled mb-0">
+          {post.today.split("\n").map(
+            (line, i) =>
+              line.trim() && (
+                <li key={i} className="mb-2 d-flex gap-2">
+                  <span className="text-muted"></span>
+                  <span style={{ fontSize: "0.92rem" }}>{line.trim()}</span>
+                </li>
+              ),
+          )}
+        </ul>
+      ) : (
+        <p className="text-muted mb-0">Nothing reported</p>
+      )}
+    </div>
+  </div>
+</div>
 
                     {/* BLOCKERS */}
                     {post.blockers && post.blockers.trim() && (
