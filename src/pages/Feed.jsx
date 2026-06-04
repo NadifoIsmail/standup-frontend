@@ -162,7 +162,7 @@ const Feed = () => {
                       {/* Yesterday */}
                       <div className="col-md-6">
 
-                        <div className="bg-light-subtle border rounded-4 p-3 h-100">
+                        <div >
 
                           <h6 className="fw-bold text-secondary small mb-3">
                             YESTERDAY
@@ -193,7 +193,7 @@ const Feed = () => {
                       {/* Today */}
                       <div className="col-md-6">
 
-                        <div className="">
+                        <div >
 
                           <h6 className="fw-bold  small mb-3">
                             TODAY
@@ -204,7 +204,7 @@ const Feed = () => {
                               line.trim() && (
                                 <p
                                   key={i}
-                                  className="mb-2 text-dark"
+                                  className="mb-2 "
                                   style={{ fontSize: "0.92rem" }}
                                 >
                                    {line}
