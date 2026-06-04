@@ -70,9 +70,9 @@ const Feed = () => {
         <div className="d-flex justify-content-between align-items-center mb-4">
 
           <div>
-            <h2 className="fw-bold mb-1">
+            <h3 className="fw-bold mb-1">
               Activity Feed
-            </h2>
+            </h3>
 
             <p className="text-muted mb-0">
               Real-time team updates
@@ -122,7 +122,6 @@ const Feed = () => {
 
                       <div className="d-flex align-items-center gap-3">
 
-                        {/* Avatar */}
                         <div
                           className="rounded-circle d-flex align-items-center justify-content-center fw-bold"
                           style={{
@@ -194,9 +193,9 @@ const Feed = () => {
                       {/* Today */}
                       <div className="col-md-6">
 
-                        <div className="bg-light-subtle border rounded-4 p-3 h-100">
+                        <div className="">
 
-                          <h6 className="fw-bold text-secondary small mb-3">
+                          <h6 className="fw-bold  small mb-3">
                             TODAY
                           </h6>
 
@@ -208,7 +207,7 @@ const Feed = () => {
                                   className="mb-2 text-dark"
                                   style={{ fontSize: "0.92rem" }}
                                 >
-                                  • {line}
+                                   {line}
                                 </p>
                               )
                             ))
@@ -227,7 +226,7 @@ const Feed = () => {
                     {/* BLOCKERS */}
                     {post.blockers && post.blockers.trim() && (
 
-                      <div className="mt-3 p-3 rounded-4 border border-danger-subtle ">
+                      <div className="mt-3 p-3 rounded-4  ">
 
                         <h6 className="fw-bold text-danger small mb-2">
                           BLOCKERS
