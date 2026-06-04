@@ -249,7 +249,7 @@ const Feed = () => {
                       <div className="mt-3">
 
                         <img
-                          src={`http://localhost:5000/uploads/${post.file_attachment}`}
+                          src={`https://standup-backend-v4n5.onrender.com/uploads/${post.file_attachment}`}
                           alt="Screenshot"
                           className="w-100 rounded-4 border"
                           style={{

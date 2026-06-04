@@ -59,7 +59,7 @@ const RecentActivity = ({ posts, error }) => {
             {post.file_attachment && (
               <div className="mt-2">
                 <img 
-                  src={`http://localhost:5000/uploads/${post.file_attachment}`}
+                  src={`https://standup-backend-v4n5.onrender.com/uploads/${post.file_attachment}`}
                   alt="Attachment"
                   style={{ maxWidth: '100%', maxHeight: '100px', borderRadius: '4px' }}
                 />
