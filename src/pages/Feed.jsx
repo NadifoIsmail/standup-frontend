@@ -75,7 +75,7 @@ const Feed = () => {
             </h2>
 
             <p className="text-muted mb-0">
-              Real-time engineering team updates
+              Real-time team updates
             </p>
           </div>
 
@@ -227,7 +227,7 @@ const Feed = () => {
                     {/* BLOCKERS */}
                     {post.blockers && post.blockers.trim() && (
 
-                      <div className="mt-3 p-3 rounded-4 border border-danger-subtle bg-danger-subtle">
+                      <div className="mt-3 p-3 rounded-4 border border-danger-subtle ">
 
                         <h6 className="fw-bold text-danger small mb-2">
                           BLOCKERS

@@ -53,7 +53,7 @@ const RecentActivity = ({ posts, error }) => {
             <p className="mb-0 small"><strong>Today:</strong> {post.today}</p>
             
             {post.blockers && (
-              <p className="mb-0 small text-danger"><strong>Blockers:</strong> {post.blockers}</p>
+              <p className="mb-0 small"><strong>Blockers:</strong> {post.blockers}</p>
             )}
             
             {post.file_attachment && (

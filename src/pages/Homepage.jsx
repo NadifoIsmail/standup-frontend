@@ -33,7 +33,7 @@ const Homepage = () => {
     <div className="p-4">
       <div className="d-flex justify-content-between align-items-center mb-4">
         <div>
-          <h2 className="mb-1">Daily Standup </h2>
+          <h3 className="mb-1">Daily Standup </h3>
           <p className="text-muted mb-0">Share your progress and blockers with the team for today</p>
         </div>
         <WeatherWidget />
