@@ -136,7 +136,8 @@ const Analytics = () => {
             </div>
           </div>
         </div>
-{/* Team Participation Table */}
+
+{/* Top Contributors - Full width table with scroll */}
 <div className="row">
   <div className="col-12">
     <div className="bg-white rounded shadow-sm p-3">
@@ -145,9 +146,15 @@ const Analytics = () => {
       {authorActivity.length === 0 ? (
         <p className="text-muted text-center py-3">No data available</p>
       ) : (
-        <div style={{ maxHeight: "300px", overflowY: "scroll" }}>
+        <div 
+          className="table-responsive"
+          style={{ 
+            maxHeight: authorActivity.length > 3 ? "300px" : "auto",
+            overflowY: authorActivity.length > 3 ? "auto" : "visible"
+          }}
+        >
           <table className="table table-hover">
-            <thead style={{ position: "sticky", top: 0, backgroundColor: "white", zIndex: 1 }}>
+            <thead style={{ position: authorActivity.length > 3 ? "sticky" : "static", top: 0, backgroundColor: "white" }}>
               <tr>
                 <th>No</th>
                 <th>Team Member</th>
@@ -180,11 +187,6 @@ const Analytics = () => {
             </tbody>
           </table>
         </div>
-      )}
-      {authorActivity.length > 3 && (
-        <small className="text-muted d-block mt-2 text-center">
-          ↓ Scroll for more ({authorActivity.length - 3} more) ↓
-        </small>
       )}
     </div>
   </div>
