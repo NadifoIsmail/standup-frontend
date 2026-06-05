@@ -66,7 +66,7 @@ const Analytics = () => {
   return (
     <div style={{ backgroundColor: '#f8f9fa', minHeight: '100vh' }}>
       <div className="container py-4">
-        <h2 className="mb-4" style={{ fontWeight: '600' }}>Analytics Dashboard</h2>
+        <h4>Analytics Dashboard</h4>
 
         {/* Stats Summary Cards */}
         <div className="row g-3 mb-4">
@@ -100,13 +100,13 @@ const Analytics = () => {
           </div>
         </div>
 
-        {/* Charts Row - 2 charts side by side */}
+        {/* Charts Row */}
         <div className="row g-4 mb-4">
           {/* Standup Frequency Chart - Using /standups/stats/ data */}
           <div className="col-md-6">
             <div className="bg-white rounded shadow-sm p-3">
               <h6 className="fw-bold mb-3">Standup Frequency (Last 7 Days)</h6>
-              <p className="text-muted small mb-3">Number of team members who posted each day</p>
+              <p className=" small mb-3">Number of team members who posted each day</p>
               <ResponsiveContainer width="100%" height={300}>
                 <BarChart data={standupFrequency}>
                   <CartesianGrid strokeDasharray="3 3" />
@@ -123,7 +123,7 @@ const Analytics = () => {
           <div className="col-md-6">
             <div className="bg-white rounded shadow-sm p-3">
               <h6 className="fw-bold mb-3">Blocker Trend (Last 7 Days)</h6>
-              <p className="text-muted small mb-3">Number of blockers reported each day</p>
+              <p className=" small mb-3">Number of blockers reported each day</p>
               <ResponsiveContainer width="100%" height={300}>
                 <LineChart data={blockerTrend}>
                   <CartesianGrid strokeDasharray="3 3" />
@@ -137,12 +137,12 @@ const Analytics = () => {
           </div>
         </div>
 
-{/* Top Contributors - Full width table with scroll */}
+{/* Top Contributors */}
 <div className="row">
   <div className="col-12">
     <div className="bg-white rounded shadow-sm p-3">
       <h6 className="fw-bold mb-3">Team Participation</h6>
-      <p className="text-muted small mb-3">Number of days each team member submitted a standup</p>
+      <p className=" small mb-3">Number of days each team member submitted a standup</p>
       {authorActivity.length === 0 ? (
         <p className="text-muted text-center py-3">No data available</p>
       ) : (
