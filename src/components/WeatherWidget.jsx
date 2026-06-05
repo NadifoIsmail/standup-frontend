@@ -8,9 +8,8 @@ const WeatherWidget = () => {
   useEffect(() => {
     const fetchWeather = async () => {
       try {
-        // Nairobi coordinates: latitude: -1.2864, longitude: 36.8172
         const response = await fetch(
-          'https://api.open-meteo.com/v1/forecast?latitude=-1.2864&longitude=36.8172&current_weather=true'
+          'https://api.open-meteo.com/v1/forecast?latitude=-1.2921&longitude=36.8219&current_weather=true'
         );
         const data = await response.json();
         setWeather(data.current_weather);
@@ -22,18 +21,32 @@ const WeatherWidget = () => {
         setLoading(false);
       }
     };
-
     fetchWeather();
   }, []);
 
-  // Get weather icon based on temperature or conditions
-  const getWeatherIcon = () => {
-    if (!weather) return '🌡️';
-    const temp = weather.temperature;
-    if (temp > 25) return '☀️';
-    if (temp > 18) return '⛅';
-    if (temp > 12) return '☁️';
-    return '❄️';
+  const getWeatherIcon = (weatherCode) => {
+    // Weather codes from Open-Meteo
+    const icons = {
+      0: 'wi wi-day-sunny',           // Clear sky
+      1: 'wi wi-day-sunny-overcast',   // Mainly clear
+      2: 'wi wi-day-cloudy',           // Partly cloudy
+      3: 'wi wi-cloudy',               // Overcast
+      45: 'wi wi-fog',                 // Fog
+      48: 'wi wi-fog',                 // Depositing rime fog
+      51: 'wi wi-rain-mix',            // Drizzle
+      53: 'wi wi-rain-mix',
+      55: 'wi wi-rain-mix',
+      61: 'wi wi-rain',                // Rain
+      63: 'wi wi-rain',
+      65: 'wi wi-rain',
+      71: 'wi wi-snow',                // Snow
+      73: 'wi wi-snow',
+      75: 'wi wi-snow',
+      80: 'wi wi-showers',             // Rain showers
+      81: 'wi wi-showers',
+      82: 'wi wi-showers',
+    };
+    return icons[weatherCode] || 'wi wi-day-sunny';
   };
 
   if (loading) {
@@ -44,9 +57,11 @@ const WeatherWidget = () => {
     return <div className="text-muted">🌡️ Weather unavailable</div>;
   }
 
+  const iconClass = getWeatherIcon(weather.weathercode);
+
   return (
     <div className="d-flex align-items-center gap-2 bg-light px-3 py-2 rounded">
-      <span style={{ fontSize: '1.5rem' }}>{getWeatherIcon()}</span>
+      <i className={iconClass} style={{ fontSize: '1.5rem' }}></i>
       <div>
         <span className="fw-bold">{weather.temperature}°C</span>
         <span className="text-muted ms-1">Nairobi</span>
