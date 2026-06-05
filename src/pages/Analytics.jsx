@@ -136,61 +136,59 @@ const Analytics = () => {
             </div>
           </div>
         </div>
-
-        {/* Team Participation Table */}
-        <div className="row">
-          <div className="col-12">
-            <div className="bg-white rounded shadow-sm p-3">
-              <h6 className="fw-bold mb-3">Team Participation</h6>
-              <p className="text-muted small mb-3">Number of days each team member submitted a standup</p>
-              {authorActivity.length === 0 ? (
-                <p className="text-muted text-center py-3">No data available</p>
-              ) : (
-                <div 
-                  className="table-responsive"
-                  style={{ 
-                    maxHeight: authorActivity.length > 3 ? "300px" : "auto",
-                    overflowY: authorActivity.length > 3 ? "scroll" : "visible"
-                  }}
-                >
-                  <table className="table table-hover">
-                    <thead style={{ position: authorActivity.length > 3 ? "sticky" : "static", top: 0, backgroundColor: "white" }}>
-                      <tr>
-                        <th>No</th>
-                        <th>Team Member</th>
-                        <th>Days Participated</th>
-                        <th>Participation Rate</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {authorActivity.map((member, idx) => {
-                        const participationRate = Math.round((member.days / 7) * 100);
-                        return (
-                          <tr key={idx}>
-                            <td>{idx + 1}</td>
-                            <td className="fw-bold">{member.name}</td>
-                            <td>{member.days} days</td>
-                            <td>
-                              <div className="d-flex align-items-center gap-2">
-                                <div className="progress flex-grow-1" style={{ height: '6px' }}>
-                                  <div 
-                                    className="progress-bar bg-success" 
-                                    style={{ width: `${participationRate}%` }}
-                                  ></div>
-                                </div>
-                                <small className="text-muted">{participationRate}%</small>
-                              </div>
-                            </td>
-                          </tr>
-                        );
-                      })}
-                    </tbody>
-                  </table>
-                </div>
-              )}
-            </div>
-          </div>
+{/* Team Participation Table */}
+<div className="row">
+  <div className="col-12">
+    <div className="bg-white rounded shadow-sm p-3">
+      <h6 className="fw-bold mb-3">Team Participation</h6>
+      <p className="text-muted small mb-3">Number of days each team member submitted a standup</p>
+      {authorActivity.length === 0 ? (
+        <p className="text-muted text-center py-3">No data available</p>
+      ) : (
+        <div style={{ maxHeight: "300px", overflowY: "scroll" }}>
+          <table className="table table-hover">
+            <thead style={{ position: "sticky", top: 0, backgroundColor: "white", zIndex: 1 }}>
+              <tr>
+                <th>No</th>
+                <th>Team Member</th>
+                <th>Days Participated</th>
+                <th>Participation Rate</th>
+              </tr>
+            </thead>
+            <tbody>
+              {authorActivity.map((member, idx) => {
+                const participationRate = Math.round((member.days / 7) * 100);
+                return (
+                  <tr key={idx}>
+                    <td>{idx + 1}</td>
+                    <td className="fw-bold">{member.name}</td>
+                    <td>{member.days} days</td>
+                    <td>
+                      <div className="d-flex align-items-center gap-2">
+                        <div className="progress flex-grow-1" style={{ height: '6px' }}>
+                          <div 
+                            className="progress-bar bg-success" 
+                            style={{ width: `${participationRate}%` }}
+                          ></div>
+                        </div>
+                        <small className="text-muted">{participationRate}%</small>
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
         </div>
+      )}
+      {authorActivity.length > 3 && (
+        <small className="text-muted d-block mt-2 text-center">
+          ↓ Scroll for more ({authorActivity.length - 3} more) ↓
+        </small>
+      )}
+    </div>
+  </div>
+</div>
       </div>
     </div>
   );
