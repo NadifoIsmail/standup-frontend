@@ -34,17 +34,8 @@ const WeatherWidget = () => {
       45: 'wi wi-fog',                 // Fog
       48: 'wi wi-fog',                 // Depositing rime fog
       51: 'wi wi-rain-mix',            // Drizzle
-      53: 'wi wi-rain-mix',
-      55: 'wi wi-rain-mix',
       61: 'wi wi-rain',                // Rain
-      63: 'wi wi-rain',
-      65: 'wi wi-rain',
-      71: 'wi wi-snow',                // Snow
-      73: 'wi wi-snow',
-      75: 'wi wi-snow',
       80: 'wi wi-showers',             // Rain showers
-      81: 'wi wi-showers',
-      82: 'wi wi-showers',
     };
     return icons[weatherCode] || 'wi wi-day-sunny';
   };
@@ -54,7 +45,7 @@ const WeatherWidget = () => {
   }
 
   if (error) {
-    return <div className="text-muted">🌡️ Weather unavailable</div>;
+    return <div className="text-muted"> Weather unavailable</div>;
   }
 
   const iconClass = getWeatherIcon(weather.weathercode);
