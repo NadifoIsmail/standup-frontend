@@ -150,7 +150,7 @@ const Analytics = () => {
                   className="table-responsive"
                   style={{ 
                     maxHeight: authorActivity.length > 3 ? "300px" : "auto",
-                    overflowY: authorActivity.length > 3 ? "auto" : "visible"
+                    overflowY: authorActivity.length > 3 ? "scroll" : "visible"
                   }}
                 >
                   <table className="table table-hover">
