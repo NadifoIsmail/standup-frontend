@@ -1,16 +1,44 @@
-# React + Vite
+# StandupSync - Team Standup Logger
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A lightweight internal tool where team members can post daily standup updates, view live activity feed, and managers can track team health with analytics dashboard.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Submit standup updates (yesterday, today, blockers) with file attachments
+Live activity feed with auto-refresh (polling every 10 seconds)
+Weather widget showing Nairobi weather
+Analytics dashboard with charts (posts per day, blocker trends, team participation)
+Responsive design with Bootstrap 5
 
-## React Compiler
+## Screenshots
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Homepage
+![Homepage](./screenshots/homepage.png)
 
-## Expanding the ESLint configuration
+### Activity Feed
+![Feed](./screenshots/feed.png)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Analytics
+![Analytics](./screenshots/analytics.png)
+
+## Live Demo
+
+- **Frontend**: [Standup App- frontend](https://standup-frontend-rose.vercel.app/)
+- **Backend API**: [Standup App- backend](https://standup-backend-v4n5.onrender.com)
+
+## Tech Stack
+
+Frontend - React, Bootstrap 5, Recharts, Axios 
+Backend -Flask, SQLAlchemy, Flask-CORS |
+Database - PostgreSQL (Render) / SQLite (local) |
+Deployment - Render(backend),Vercel(frontend)
+APIs - Open-Meteo 
+
+## Local Setup
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
