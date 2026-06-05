@@ -36,7 +36,7 @@ const Analytics = () => {
   // Use data from /standups/stats/ endpoint
   const standupFrequency = (stats.posts_per_day || []).map(day => ({
     date: day.date.slice(5), // Convert "2026-06-01" to "06-01"
-    count: day.posts || 0
+    count: day.count || 0
   }));
 
   // Calculate blocker trend from stats data
